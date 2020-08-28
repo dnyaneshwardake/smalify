@@ -1,0 +1,17 @@
+smalify:
+  baseurl: https://smalify.herokuapp.com/
+
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active:
+    - prod
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+      cache-null-values: true
+
+  #H2 DB   h2:    console:      enabled: true  datasource:    url: jdbc:h2:mem:smalify
