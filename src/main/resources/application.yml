@@ -1,5 +1,4 @@
 smalify:
-  #baseurl: http://localhost:8080/
   baseurl: https://smalify.herokuapp.com/
 
 server:
