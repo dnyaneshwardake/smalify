@@ -1,11 +1,60 @@
-<html>
-<header></header>
-<head></head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Smalify | by Dnyanesh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+<!-- <body>
+	<form action="http://localhost:8080/get">
+		<input type="text" name="longUrl" placeholder="Enter URL to short" />
+		<input type="submit" value="Get Short Url"> <br>
+		<br> <label>Short URL: ${shortUrl}</label>
 
+	</form>
+</body> -->
 <body>
-<form action="http://localhost:8080/get">
-	<input type="text" name="longUrl" placeholder="Enter URL to short"/>
-	<input type="submit" value="Get Short Url">
-</form>
+	<div class="container my-5">
+		<h3>Welcome to smalify an url shortner</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-10">
+					<form action="#" th:action="@{/}" th:object="${url}" method="post">
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="longUrl" class="col-form-label"></label> <input
+									type="text" class="form-control" id="longUrl"
+									placeholder="Enter long url here"> <span
+									class="text-danger"></span>
+
+							</div>
+
+							<div class="col-md-6">
+								<input type="submit" class="btn btn-primary" value="Short it">
+								<p>
+								<div>
+									<label>Short url: <th:text="${url.shortUrl}"></label>
+
+								</div>
+							</div>
+
+							<div class="form-group col-md-8"></div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
