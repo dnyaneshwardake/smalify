@@ -2,6 +2,9 @@ smalify:
   #baseurl: http://localhost:8080/
   baseurl: https://smalify.herokuapp.com/
 
+server:
+  port: 8080
+
 spring:
   profiles:
     active:
@@ -12,11 +15,5 @@ spring:
       time-to-live: 60000
       cache-null-values: true
 
-  #H2 DB 
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-  datasource:
-    url: jdbc:h2:mem:smalify
+  #H2 DB   h2:    console:      enabled: true
+      settings:        web-allow-others: true  datasource:    url: jdbc:h2:mem:smalify

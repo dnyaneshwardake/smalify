@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,13 +23,22 @@ public class UrlController {
 	private UrlService urlservice;
 
 	@GetMapping
-	public String homePage() {
+	public String home() {
 		return "index";
+	}
+
+	@GetMapping("shortit")
+	public String showShortUrlPage(Url url) {
+		return "shorturls";
 	}
 
 	@PostMapping
 	public String getShortUrl(@Valid Url url, BindingResult result, Model model) {
-		String shortUrl = urlservice.getShortUrl(new Url("https://github.com/RameshMF/springboot-thymeleaf-crud-tutorial", ""));
+		if (result.hasErrors()) {
+			return "index";
+		}
+
+		String shortUrl = urlservice.getShortUrl(url);
 		model.addAttribute("url", new Url(url.getLongUrl(), shortUrl));
 		return "index";
 	}
