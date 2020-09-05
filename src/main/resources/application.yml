@@ -1,6 +1,6 @@
 smalify:
   #baseurl: http://localhost:8080/
-  baseurl: http://smalify.herokuapp.com/
+  baseurl: https://smalify.herokuapp.com/
 
 spring:
   profiles:
