@@ -23,5 +23,6 @@ public class UrlEntity {
 	private Long id;
 	private String shortUrl;
 	private String longUrl;
+	private Integer hitCount;
 
 }

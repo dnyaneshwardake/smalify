@@ -17,19 +17,19 @@
 </head>
 <body>
 	<div class="container my-5">
-	<h3>Welcome to smalify an url shortner app</h3>
+		<h3>Welcome to smalify an url shortner app</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-10">
-					<form action="#" th:action="@{/}"
-						th:object="${url}" method="post">
+					<form action="#" th:action="@{/}" th:object="${url}" method="post">
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="longUrl" class="col-form-label">Long url</label> <input
-									type="text" th:field="*{longUrl}" class="form-control" id="longUrl"
-									placeholder="Please enter long url here"> <span
-									th:if="${#fields.hasErrors('longUrl')}" th:errors="*{longUrl}"
-									class="text-danger"></span>
+									type="text" th:field="*{longUrl}" class="form-control"
+									id="longUrl"
+									placeholder="Paste your lengthy url here to shorten it">
+								<span th:if="${#fields.hasErrors('longUrl')}"
+									th:errors="*{longUrl}" class="text-danger"></span>
 							</div>
 
 

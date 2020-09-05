@@ -50,7 +50,10 @@ public class UrlController {
 			return new ModelAndView("redirect:" + urlservice.getLongUrl(md5Value));
 		}
 		return null;
-
 	}
 
+	@GetMapping("errorpage")
+	public String errorPage(Url url) {
+		return "errorpage";
+	}
 }

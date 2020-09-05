@@ -19,30 +19,13 @@
 	<div class="container my-2">
 		<div class="card">
 			<div class="card-body">
-				<div th:switch="${url}" class="container my-5">
+				<div class="container my-5">
 					<p class="my-5">
 						<a href="/shortit" class="btn btn-primary"><i
-							class="fas fa-plus ml-2">Create your short URL</i></a>
+							class="fas fa-plus ml-2">Create new short url</i></a>
 					</p>
 					<div class="col-md-10">
-						<h2 th:case="null">No Urls yet!</h2>
-						<div th:case="*">
-							<table class="table table-striped table-responsive-md">
-								<thead>
-									<tr>
-										<th>Short url</th>
-										<th>Long url</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td th:text="${url.shortUrl}"></td>
-										<td th:text="${url.longUrl}"></td>
-
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						<h2>Invalid short URL</h2>
 
 					</div>
 				</div>

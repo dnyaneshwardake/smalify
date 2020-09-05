@@ -36,7 +36,25 @@ public class UrlService {
 	public String getLongUrl(String md5Value) {
 		String url = BASE_URL + md5Value;
 		UrlEntity urlEntity = repository.findByShortUrl(url);
-		return urlEntity.getLongUrl();
+		if (null != urlEntity) {
+			updateUrlHitCount(urlEntity);
+			return urlEntity.getLongUrl();
+		}
+		return getErrorPageUrl();
+	}
+
+	private void updateUrlHitCount(UrlEntity urlEntity) {
+		if (null != urlEntity.getHitCount()) {
+			Integer hitCount = urlEntity.getHitCount() + 1;
+			urlEntity.setHitCount(hitCount);
+		} else {
+			urlEntity.setHitCount(1);
+		}
+		repository.save(urlEntity);
+	}
+
+	public String getErrorPageUrl() {
+		return BASE_URL + "errorpage";
 	}
 
 }
