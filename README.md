@@ -1,2 +1,2 @@
 # smalify
-Smalify URL shorter designed using Java, Spring Boot, Redis, H2, MD5, JPA, Lombok, Apache tomcat
+Smalify an URL shorter designed using Core Java, Spring Boot, Thymeleaf, Redis, PostgreSQL, MD5, Spring Data JPA, Lombok, Apache tomcat, html, css, javascript.
