@@ -1,5 +1,7 @@
 package com.dnyanesh.smalify.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,8 @@ public class UrlService {
 	public String getShortUrl(Url longUrl) {
 		String shortUrl = createShortUrl(longUrl);
 		if (null == repository.findByShortUrl(shortUrl)) {
-			UrlEntity urlEntiry = UrlEntity.builder().shortUrl(shortUrl).longUrl(longUrl.getLongUrl()).build();
+			UrlEntity urlEntiry = UrlEntity.builder().shortUrl(shortUrl).longUrl(longUrl.getLongUrl())
+					.creationDate(new Date()).build();
 			repository.save(urlEntiry);
 			return shortUrl;
 		}
@@ -44,11 +47,11 @@ public class UrlService {
 	}
 
 	private void updateUrlHitCount(UrlEntity urlEntity) {
-		if (null != urlEntity.getHitCount()) {
-			Integer hitCount = urlEntity.getHitCount() + 1;
-			urlEntity.setHitCount(hitCount);
+		if (null != urlEntity.getUrlHitCount()) {
+			Integer hitCount = urlEntity.getUrlHitCount() + 1;
+			urlEntity.setUrlHitCount(hitCount);
 		} else {
-			urlEntity.setHitCount(1);
+			urlEntity.setUrlHitCount(1);
 		}
 		repository.save(urlEntity);
 	}
