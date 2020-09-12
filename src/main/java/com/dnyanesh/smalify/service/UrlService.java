@@ -1,8 +1,6 @@
 package com.dnyanesh.smalify.service;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,8 +47,7 @@ public class UrlService {
 	}
 
 	private void updateUrlHitCount(UrlEntity urlEntity) {
-		ZonedDateTime lastUrlHitDate = ZonedDateTime.now(TimeZone.getTimeZone("IST").toZoneId());
-		urlEntity.setLastUrlHitDate(lastUrlHitDate);
+		urlEntity.setLastUrlHitDate(new Date());
 		if (null != urlEntity.getUrlHitCount()) {
 			Integer hitCount = urlEntity.getUrlHitCount() + 1;
 			urlEntity.setUrlHitCount(hitCount);
