@@ -1,5 +1,6 @@
 package com.dnyanesh.smalify.entity;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,6 +30,6 @@ public class UrlEntity {
 	private String longUrl;
 	private Date creationDate;
 	private Integer urlHitCount;
-	private Date lastUrlHitDate;
+	private ZonedDateTime lastUrlHitDate;
 
 }
