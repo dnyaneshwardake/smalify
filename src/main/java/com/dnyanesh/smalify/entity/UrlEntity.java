@@ -22,6 +22,7 @@ public class UrlEntity {
 	@Id
 	private Long id;
 	private String shortUrl;
+	@Column(length=400)
 	private String longUrl;
 	private Integer hitCount;
 
