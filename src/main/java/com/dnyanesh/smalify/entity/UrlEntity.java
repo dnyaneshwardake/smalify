@@ -1,5 +1,8 @@
 package com.dnyanesh.smalify.entity;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,8 +25,10 @@ public class UrlEntity {
 	@Id
 	private Long id;
 	private String shortUrl;
-	@Column(length=400)
+	@Column(length = 400)
 	private String longUrl;
-	private Integer hitCount;
+	private Date creationDate;
+	private Integer urlHitCount;
+	private Date lastUrlHitDate;
 
 }
