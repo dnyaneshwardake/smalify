@@ -27,7 +27,7 @@ public class UrlEntity {
 	private String shortUrl;
 	@Column(length = 400)
 	private String longUrl;
-	private Date creationDate;
-	private Integer urlHitCount;
-	private Date lastUrlHitDate;
+	private Date urlCreatedOn;
+	private Integer urlUseCount;
+	private Date urlLastUsedOn;
 }
