@@ -60,5 +60,4 @@ public class UrlService {
 	public String getErrorPageUrl() {
 		return BASE_URL + "errorpage";
 	}
-
 }
