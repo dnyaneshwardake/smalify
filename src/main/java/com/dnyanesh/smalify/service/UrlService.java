@@ -24,7 +24,7 @@ public class UrlService {
 		String shortUrl = createShortUrl(longUrl);
 		if (null == repository.findByShortUrl(shortUrl)) {
 			UrlEntity urlEntiry = UrlEntity.builder().shortUrl(shortUrl).longUrl(longUrl.getLongUrl())
-					.creationDate(new Date()).build();
+					.urlCreatedOn(new Date()).build();
 			repository.save(urlEntiry);
 			return shortUrl;
 		}
@@ -47,12 +47,12 @@ public class UrlService {
 	}
 
 	private void updateUrlHitCount(UrlEntity urlEntity) {
-		urlEntity.setLastUrlHitDate(new Date());
-		if (null != urlEntity.getUrlHitCount()) {
-			Integer hitCount = urlEntity.getUrlHitCount() + 1;
-			urlEntity.setUrlHitCount(hitCount);
+		urlEntity.setUrlLastUsedOn(new Date());
+		if (null != urlEntity.getUrlUseCount()) {
+			Integer hitCount = urlEntity.getUrlUseCount() + 1;
+			urlEntity.setUrlUseCount(hitCount);
 		} else {
-			urlEntity.setUrlHitCount(1);
+			urlEntity.setUrlUseCount(1);
 		}
 		repository.save(urlEntity);
 	}
