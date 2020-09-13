@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dnyanesh.smalify.beans.Url;
@@ -37,7 +38,6 @@ public class UrlController {
 		if (result.hasErrors()) {
 			return "index";
 		}
-
 		String shortUrl = urlservice.getShortUrl(url);
 		model.addAttribute("url", new Url(url.getLongUrl(), shortUrl));
 		return "index";
@@ -45,15 +45,16 @@ public class UrlController {
 
 	@GetMapping("{md5Value}")
 	public ModelAndView getLongUrl(@PathVariable String md5Value) {
-
-		if (null != md5Value && !md5Value.equals("favicon.ico")) {
-			return new ModelAndView("redirect:" + urlservice.getLongUrl(md5Value));
-		}
-		return null;
+		return new ModelAndView("redirect:" + urlservice.getLongUrl(md5Value));
 	}
 
 	@GetMapping("errorpage")
 	public String errorPage(Url url) {
 		return "errorpage";
+	}
+
+	@GetMapping("favicon.ico")
+	@ResponseBody
+	void returnNoFavicon() {
 	}
 }
