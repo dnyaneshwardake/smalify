@@ -17,6 +17,10 @@
 <script type="text/javascript">
 	function isUrlValid(urlform) {
 		var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+		if (urlform.longUrl.value.length > 400) {
+			alert("Maximum URL length allowed is 400 charactor");
+			return false;
+		}
 		if (regex.test(urlform.longUrl.value)) {
 			return true;
 		} else {
