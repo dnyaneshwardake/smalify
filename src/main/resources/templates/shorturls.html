@@ -29,8 +29,8 @@
 		}
 	}
 </script>
-
 </head>
+
 <body>
 	<div class="container my-5">
 		<h3>Smalify | by Dnyanesh</h3>
@@ -44,9 +44,9 @@
 								<label for="longUrl" class="col-form-label">Long url</label> <input
 									type="url" th:field="*{longUrl}" class="form-control"
 									name="longUrl" id="longUrl" required="required"
-									placeholder="Paste your lengthy url here to shorten it">
-								<span th:if="${#fields.hasErrors('longUrl')}"
-									th:errors="*{longUrl}" class="text-danger"></span>
+									placeholder="Paste your lengthy url to shorten it"> <span
+									th:if="${#fields.hasErrors('longUrl')}" th:errors="*{longUrl}"
+									class="text-danger"></span>
 							</div>
 
 
@@ -59,7 +59,14 @@
 						</div>
 					</form>
 				</div>
+				<div>
+					<p>
+						By using our website, you agree to our <a
+							href="https://smalify.herokuapp.com/privacy-policy"
+							target="_blank">privacy-policy</a>
+				</div>
 			</div>
+
 		</div>
 	</div>
 </body>
