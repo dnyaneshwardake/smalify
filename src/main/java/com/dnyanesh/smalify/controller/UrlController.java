@@ -57,4 +57,9 @@ public class UrlController {
 	@ResponseBody
 	void returnNoFavicon() {
 	}
+	
+	@GetMapping("privacy-policy")
+	public String privacyPolicy() {
+		return "privacy-policy";
+	}
 }
