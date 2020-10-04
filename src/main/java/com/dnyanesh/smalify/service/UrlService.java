@@ -20,19 +20,20 @@ public class UrlService {
 	@Autowired
 	private UrlRepository repository;
 
-	public String getShortUrl(Url longUrl) {
+	public String getShortUrl(Url url) {
+		String longUrl = url.getLongUrl().trim();
 		String shortUrl = createShortUrl(longUrl);
 		if (null == repository.findByShortUrl(shortUrl)) {
-			UrlEntity urlEntiry = UrlEntity.builder().shortUrl(shortUrl).longUrl(longUrl.getLongUrl())
-					.urlCreatedOn(new Date()).build();
+			UrlEntity urlEntiry = UrlEntity.builder().shortUrl(shortUrl).longUrl(longUrl).urlCreatedOn(new Date())
+					.build();
 			repository.save(urlEntiry);
 			return shortUrl;
 		}
 		return shortUrl;
 	}
 
-	private String createShortUrl(Url longUrl) {
-		String md5 = MD5.getMd5(longUrl.getLongUrl().trim());
+	private String createShortUrl(String longUrl) {
+		String md5 = MD5.getMd5(longUrl);
 		return BASE_URL + md5.substring(0, 7);
 	}
 
