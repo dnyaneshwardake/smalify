@@ -1,16 +1,7 @@
-smalify:
-  #baseurl: http://localhost:8080/
-  baseurl: https://smalify.herokuapp.com/
-
-spring:
+spring:  application:    name: smalify
   profiles:
     active:
     - prod
-  cache:
-    type: redis
-    redis:
-      time-to-live: 60000
-      cache-null-values: true
 
   #H2 DB 
 #  h2:

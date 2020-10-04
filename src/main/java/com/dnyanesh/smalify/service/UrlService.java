@@ -32,7 +32,7 @@ public class UrlService {
 	}
 
 	private String createShortUrl(Url longUrl) {
-		String md5 = MD5.getMd5(longUrl.getLongUrl());
+		String md5 = MD5.getMd5(longUrl.getLongUrl().trim());
 		return BASE_URL + md5.substring(0, 7);
 	}
 
