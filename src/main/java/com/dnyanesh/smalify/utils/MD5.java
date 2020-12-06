@@ -6,6 +6,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5 {
 
+	private MD5() {
+	}
+
 	/*
 	 * Below method will generate MD% for given input string value
 	 */

@@ -20,12 +20,14 @@ import com.dnyanesh.smalify.service.UrlService;
 @RequestMapping("/")
 public class UrlController {
 
+	public static final String HOME_PAGE = "index";
+
 	@Autowired
 	private UrlService urlservice;
 
 	@GetMapping
 	public String home() {
-		return "index";
+		return HOME_PAGE;
 	}
 
 	@GetMapping("shortit")
@@ -36,11 +38,11 @@ public class UrlController {
 	@PostMapping
 	public String getShortUrl(@Valid Url url, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "index";
+			return HOME_PAGE;
 		}
 		String shortUrl = urlservice.getShortUrl(url);
 		model.addAttribute("url", new Url(url.getLongUrl(), shortUrl));
-		return "index";
+		return HOME_PAGE;
 	}
 
 	@GetMapping("{md5Value}")
@@ -55,9 +57,12 @@ public class UrlController {
 
 	@GetMapping("favicon.ico")
 	@ResponseBody
-	void returnNoFavicon() {
+	public void returnNoFavicon() {
+		/*
+		 * Comments
+		 */
 	}
-	
+
 	@GetMapping("privacy-policy")
 	public String privacyPolicy() {
 		return "privacy-policy";

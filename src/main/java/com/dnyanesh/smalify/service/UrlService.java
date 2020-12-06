@@ -15,7 +15,7 @@ import com.dnyanesh.smalify.utils.MD5;
 public class UrlService {
 
 	@Value("${smalify.baseurl}")
-	private String BASE_URL;
+	private String baseUrl;
 
 	@Autowired
 	private UrlRepository repository;
@@ -27,18 +27,17 @@ public class UrlService {
 			UrlEntity urlEntiry = UrlEntity.builder().shortUrl(shortUrl).longUrl(longUrl).urlCreatedOn(new Date())
 					.build();
 			repository.save(urlEntiry);
-			return shortUrl;
 		}
 		return shortUrl;
 	}
 
 	private String createShortUrl(String longUrl) {
 		String md5 = MD5.getMd5(longUrl);
-		return BASE_URL + md5.substring(0, 7);
+		return baseUrl + md5.substring(0, 7);
 	}
 
 	public String getLongUrl(String md5Value) {
-		String url = BASE_URL + md5Value;
+		String url = baseUrl + md5Value;
 		UrlEntity urlEntity = repository.findByShortUrl(url);
 		if (null != urlEntity) {
 			updateUrlHitCount(urlEntity);
@@ -59,6 +58,6 @@ public class UrlService {
 	}
 
 	public String getErrorPageUrl() {
-		return BASE_URL + "errorpage";
+		return baseUrl + "errorpage";
 	}
 }
