@@ -1,7 +1,9 @@
-spring:  application:    name: smalify
+spring:
+  application:
+    name: smalify
   profiles:
     active:
-    - prod
+    - dev
 
   #H2 DB 
 #  h2:
